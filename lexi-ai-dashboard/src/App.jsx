@@ -17,6 +17,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
+            <Route index element={<Workspaces />} />
             <Route path="workspaces" element={<Workspaces />} />
             <Route path="team" element={<TeamManagement />} />
             <Route path="billings" element={<Billings />} />
