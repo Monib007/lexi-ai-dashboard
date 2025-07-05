@@ -80,7 +80,7 @@ npm install
 ### 3. Start Development Server
 npm run dev
 ```
-Visit [http://localhost:5173](http://localhost:5173) to view the app.
+Visit (https://lexi-ai-dashboard-two.vercel.app/workspaces) to view the app.
 
 ---
 
