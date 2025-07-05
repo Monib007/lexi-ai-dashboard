@@ -6,6 +6,7 @@ A responsive and modern legal case management dashboard built for litigation tea
 
 ## 📂 Project Structure
 
+```
 src/
 ├── components/
 │   ├── CaseDetailsForm.jsx
@@ -29,7 +30,7 @@ src/
 │   └── Workspaces.jsx
 │
 └── App.jsx
-
+```
 ---
 
 ## 🚀 Features
