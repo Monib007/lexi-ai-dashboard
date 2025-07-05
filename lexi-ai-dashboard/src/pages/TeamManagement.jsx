@@ -1,41 +1,90 @@
-// src/pages/TeamManagement
-
-import React from 'react';
+import React from "react";
+import { Button, Dropdown } from "react-bootstrap";
 
 const teamMembers = [
-  { id: 1, name: 'Alice Johnson', email: 'alice@example.com', role: 'Project Manager' },
-  { id: 2, name: 'Bob Smith', email: 'bob@example.com', role: 'Frontend Developer' },
-  { id: 3, name: 'Carol Lee', email: 'carol@example.com', role: 'UX Designer' },
-  { id: 4, name: 'David Miller', email: 'david@example.com', role: 'Backend Developer' }
+  {
+    id: 1,
+    name: "Aarav Sharma",
+    role: "Senior Legal Advisor",
+    email: "aarav.sharma@lexiai.com",
+    avatar: "https://ui-avatars.com/api/?name=Aarav+Sharma&background=343a40&color=fff"
+  },
+  {
+    id: 2,
+    name: "Priya Menon",
+    role: "Paralegal",
+    email: "priya.menon@lexiai.com",
+    avatar: "https://ui-avatars.com/api/?name=Priya+Menon&background=6f42c1&color=fff"
+  },
+  {
+    id: 3,
+    name: "Rohan Desai",
+    role: "Case Investigator",
+    email: "rohan.desai@lexiai.com",
+    avatar: "https://ui-avatars.com/api/?name=Rohan+Desai&background=198754&color=fff"
+  },
+  {
+    id: 4,
+    name: "Sneha Kapoor",
+    role: "Litigation Clerk",
+    email: "sneha.kapoor@lexiai.com",
+    avatar: "https://ui-avatars.com/api/?name=Sneha+Kapoor&background=0d6efd&color=fff"
+  }
 ];
 
 function TeamManagement() {
   return (
-    <div className="team-management-page">
-      <h4 className="fw-semibold mb-4">Team Members</h4>
-      <div className="table-responsive">
-        <table className="table table-bordered table-hover align-middle">
+    <div className="team-page">
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h4 className="fw-semibold">Legal Team Management</h4>
+        <Button variant="dark">
+          <i className="bi bi-person-plus-fill me-2"></i>Add Legal Member
+        </Button>
+      </div>
+
+      <div className="card shadow-sm p-3">
+        <table className="table align-middle mb-0">
           <thead className="table-light">
             <tr>
-              <th>Name</th>
-              <th>Email</th>
+              <th>Member</th>
               <th>Role</th>
-              <th className="text-center">Actions</th>
+              <th>Email</th>
+              <th className="text-end">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {teamMembers.map(member => (
+            {teamMembers.map((member) => (
               <tr key={member.id}>
-                <td>{member.name}</td>
-                <td>{member.email}</td>
+                <td>
+                  <div className="d-flex align-items-center gap-2">
+                    <img
+                      src={member.avatar}
+                      alt={member.name}
+                      className="rounded-circle"
+                      width={40}
+                      height={40}
+                    />
+                    <span>{member.name}</span>
+                  </div>
+                </td>
                 <td>{member.role}</td>
-                <td className="text-center">
-                  <button className="btn btn-sm btn-outline-primary me-2">
-                    <i className="bi bi-pencil"></i>
-                  </button>
-                  <button className="btn btn-sm btn-outline-danger">
-                    <i className="bi bi-trash"></i>
-                  </button>
+                <td>{member.email}</td>
+                <td className="text-end">
+                  <Dropdown align="end">
+                    <Dropdown.Toggle
+                      variant="outline-secondary"
+                      size="sm"
+                      className="text-dark"
+                    >
+                      Options
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item>Edit Role</Dropdown.Item>
+                      <Dropdown.Item>Reassign Cases</Dropdown.Item>
+                      <Dropdown.Divider />
+                      <Dropdown.Item className="text-danger">Remove Member</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </td>
               </tr>
             ))}

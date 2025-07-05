@@ -1,72 +1,86 @@
-// src/pages/Settings.jsx
-
-import React, { useState } from 'react';
+import React from "react";
+import { Form, Button } from "react-bootstrap";
 
 function Settings() {
-  const [formData, setFormData] = useState({
-    name: 'John Doe',
-    email: 'john@example.com',
-    password: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Settings saved! (not really)');
-    // In real app: send formData to backend
-  };
-
   return (
     <div className="settings-page">
-      <h4 className="fw-semibold mb-4">Profile Settings</h4>
-      <div className="card shadow-sm" style={{ maxWidth: '600px' }}>
+      <h4 className="fw-semibold mb-4">Settings</h4>
+
+      {/* Profile Settings */}
+      <div className="card shadow-sm mb-4">
         <div className="card-body">
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Full Name</label>
-              <input
-                type="text"
-                className="form-control"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+          <h5 className="mb-3">Profile Information</h5>
+          <Form>
+            <div className="row g-3">
+              <div className="col-md-6">
+                <Form.Group controlId="firstName">
+                  <Form.Label>First Name</Form.Label>
+                  <Form.Control type="text" placeholder="John" />
+                </Form.Group>
+              </div>
+              <div className="col-md-6">
+                <Form.Group controlId="lastName">
+                  <Form.Label>Last Name</Form.Label>
+                  <Form.Control type="text" placeholder="Doe" />
+                </Form.Group>
+              </div>
+              <div className="col-md-12">
+                <Form.Group controlId="email">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" placeholder="john.doe@lexiai.com" />
+                </Form.Group>
+              </div>
             </div>
-
-            <div className="mb-3">
-              <label className="form-label">Email Address</label>
-              <input
-                type="email"
-                className="form-control"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
+            <div className="mt-3 text-end">
+              <Button variant="primary">Save Changes</Button>
             </div>
+          </Form>
+        </div>
+      </div>
 
-            <div className="mb-3">
-              <label className="form-label">New Password</label>
-              <input
-                type="password"
-                className="form-control"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-              <div className="form-text">Leave blank to keep current password</div>
+      {/* Preferences */}
+      <div className="card shadow-sm mb-4">
+        <div className="card-body">
+          <h5 className="mb-3">Preferences</h5>
+          <Form>
+            <Form.Check
+              type="switch"
+              id="notifications"
+              label="Email Notifications for Case Updates"
+              defaultChecked
+            />
+            <Form.Check
+              type="switch"
+              id="darkMode"
+              label="Enable Dark Mode"
+            />
+          </Form>
+        </div>
+      </div>
+
+      {/* Password Section */}
+      <div className="card shadow-sm">
+        <div className="card-body">
+          <h5 className="mb-3">Change Password</h5>
+          <Form>
+            <div className="row g-3">
+              <div className="col-md-6">
+                <Form.Group controlId="currentPassword">
+                  <Form.Label>Current Password</Form.Label>
+                  <Form.Control type="password" />
+                </Form.Group>
+              </div>
+              <div className="col-md-6">
+                <Form.Group controlId="newPassword">
+                  <Form.Label>New Password</Form.Label>
+                  <Form.Control type="password" />
+                </Form.Group>
+              </div>
             </div>
-
-            <button type="submit" className="btn btn-primary">Save Changes</button>
-          </form>
+            <div className="mt-3 text-end">
+              <Button variant="secondary">Update Password</Button>
+            </div>
+          </Form>
         </div>
       </div>
     </div>
