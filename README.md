@@ -68,16 +68,18 @@ src/
 ## 🖥️ Setup Instructions
 
 ### 1. Clone the Repository
-
+```
 git clone https://github.com/your-username/lexi-ai-dashboard.git
 cd lexi-ai-dashboard
-
+```
+```
 ### 2. Install Dependencies
 npm install
-
+```
+```
 ### 3. Start Development Server
 npm run dev
-
+```
 Visit [http://localhost:5173](http://localhost:5173) to view the app.
 
 ---
